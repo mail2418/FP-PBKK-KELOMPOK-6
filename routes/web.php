@@ -61,3 +61,5 @@ Route::get('/register', [RegisterController::class, 'create'])->middleware('gues
 Route::post('/register', [RegisterController::class, 'store']);
 Route::get('/form/{locale}', [LocalizationController::class, "setLocale"])->name('setLocale');
 // Route::get('/form/{locale}', 'App\Http\Controllers\LocalizationController@index');
+Route::get('/test-email-create','TestEmailJobController@createEmail');
+Route::post('/test-email-send','TestEmailJobController@sendEmail')->name('send.email');
