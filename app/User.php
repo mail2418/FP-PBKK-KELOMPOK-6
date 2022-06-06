@@ -7,7 +7,8 @@ use App\Transaksi;
 class User extends Model
 {
     protected $table = "user";
-    protected $fillable = ['kode_user', 'nama', 'telepon'];
+    // protected $fillable = ['kode_user', 'nama', 'telepon'];
+    protected $guarded = ['id'];
     protected $primaryKey = 'kode_user';
     public $timestamps = false;
 

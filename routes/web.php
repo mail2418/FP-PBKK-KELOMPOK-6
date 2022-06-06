@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\StudioController;
+use App\Http\Controllers\Auth\RegisterController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -54,3 +55,7 @@ Route::delete('/daftarpenyewa/{transaksi}','TransaksiController@destroy');
 Route::put('/daftarpenyewa/{transaksi}','TransaksiController@update');
 
 Route::get('/profile', 'StudioController@index');
+
+Route::get('/register', [RegisterController::class, 'create'])->middleware('guest');
+Route::post('/register', [RegisterController::class, 'store']);
+Route::get('/locale/{locale}', [LocalizationController::class, "setLocale"])->name('setLocale');
