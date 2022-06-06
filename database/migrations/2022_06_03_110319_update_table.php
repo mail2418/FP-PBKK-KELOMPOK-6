@@ -27,8 +27,14 @@ class UpdateTable extends Migration
 
          Schema::create('user', function (Blueprint $table) {
              $table->increments('kode_user');
-             $table->string('nama');
-             $table->string('telepon');
+            //  $table->bigIncrements('id');
+             $table->string('name');
+             $table->string('username')->unique()->nullable();
+             $table->string('email')->unique();
+             $table->timestamp('email_verified_at')->nullable();
+             $table->string('password');
+             $table->rememberToken();
+             $table->timestamps();
          });
 
          Schema::create('jadwal', function (Blueprint $table) {
@@ -63,12 +69,12 @@ class UpdateTable extends Migration
              $table->foreign('kode_jadwal_studio')->references('kode_jadwal')->on('jadwal');
          });
 
-         Schema::table('transaksi', function (Blueprint $table) {
-             $table->foreign('kode_karyawan_transaksi')->references('kode_karyawan')->on('karyawan');
-             $table->foreign('kode_studio_transaksi')->references('kode_studio')->on('studio');
-             $table->foreign('kode_user_transaksi')->references('kode_user')->on('user');
-             $table->foreign('kode_jadwal_transaksi')->references('kode_jadwal')->on('jadwal');
-         });
+        //  Schema::table('transaksi', function (Blueprint $table) {
+        //      $table->foreign('kode_karyawan_transaksi')->references('kode_karyawan')->on('karyawan');
+        //      $table->foreign('kode_studio_transaksi')->references('kode_studio')->on('studio');
+        //      $table->foreign('kode_user_transaksi')->references('kode_user')->on('user');
+        //      $table->foreign('kode_jadwal_transaksi')->references('kode_jadwal')->on('jadwal');
+        //  });
     }
 
     /**

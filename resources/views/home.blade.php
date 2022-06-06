@@ -14,64 +14,49 @@
     <link rel="stylesheet" type="text/css" href="css/home-style.css">
   </head>
   <body>
-      <!-- Language Dropdown -->
-<div class="hidden sm:flex sm:items-center sm:ml-6">
-    <x-dropdown align="right" width="48">
-        <x-slot name="trigger">
-            <button class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
-                @php $locale = session()->get('locale'); @endphp
-                <div>
-                    @switch($locale)
-                        @case('en')
-                        English
-                        @break
-                        @case('id')
-                        Indonesia
-                        @break
-                        @default
-                        English
-                    @endswitch
-                </div>
-
-                <div class="ml-1">
-                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                    </svg>
-                </div>
-            </button>
-        </x-slot>
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Dropdown button
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="route('setLocale', 'en')">English</a>
-              <a class="dropdown-item" href="route('setLocale', 'id')">Indonesia</a>
-            </div>
-          </div>
-        <x-slot name="content">        
-            <x-dropdown-link :href="route('setLocale', 'en')">
-                {{ __('English') }}
-            </x-dropdown-link>
-            <x-dropdown-link :href="route('setLocale', 'id')">
-                {{ __('Indonesia') }}
-            </x-dropdown-link>
-        </x-slot>
-    </x-dropdown>
-</div>
+    
     <div class="container">
         <div class="pattern"></div>
         <div class="nav">
             <div class="menu">
                 <ul>
-                    <li><a href="#">{{ __('home.Home') }}</a></li>
-                    <li><a href="schedule">Jadwal</a></li>
-                    <li><a href="profile">Profil</a></li>
-                    <li><a href="login">Login</a></li>
+                    <li><a href="#">{{ __('home.home') }}</a></li>
+                    <li><a href="schedule">{{ __('home.schedule') }}</a></li>
+                    <li><a href="profile">{{ __('home.profile') }}</a></li>
+                    <li><a href="login">{{ __('home.login') }}</a></li>
+                    <li>
+                        {{-- <div class="collapse navbar-collapse" id="navbarToggler"> --}}
+                        <ul class="navbar-nav ml-auto">
+                            @php $locale = session()->get('locale'); @endphp
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                       @switch($locale)
+                                        @case('en')
+                                        English
+                                        @break
+                                        @case('id')
+                                        Indonesia
+                                        @break
+                                        @default
+                                        English
+                                    @endswitch    
+                                    <span class="caret"></span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="/form/en"> English</a>
+                                    <a class="dropdown-item" href="/form/id"> Indonesia</a>
+                                </div>
+                            </li>
+                        </ul>
+                    {{-- </div> --}}
+                </li>
                     
+                
                 </ul>
             </div>
         </div>
+
 
         <div class="square-1 square"></div>
         <div class="square-2 square"></div>
@@ -85,8 +70,8 @@
         </div> --}}
 
         <div class="content">
-            <p>Studio musik ini berlokasi di Jalan Kenjeran No.97, Kenjeran Baru, Kota Surabaya, Jawa Timur, 60132, Indonesia</p>
-            <button>Hubungi Sekarang</button>
+            <p>{{ __('home.opening') }}</p>
+            <button>{{ __('home.call') }}</button>
         </div>
     </div>
 
