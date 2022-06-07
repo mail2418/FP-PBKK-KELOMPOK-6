@@ -12,7 +12,7 @@ new Vue({
     data: {
         jadwal: {
             '1': {
-                'lapangan': 'Biasa',
+                'studio': 'Biasa',
                 'label': 'A',
                 'urutan': [ {'nomor':'07:00'},{'nomor':'08:00'},
                             {'nomor':'09:00'}, {'nomor':'10:00'},
@@ -24,7 +24,7 @@ new Vue({
                             {'nomor':'21:00'}]
             },
             '2': {
-                'lapangan': 'Medium',
+                'studio': 'Medium',
                 'label': 'B',
                 'urutan': [ {'nomor':'07:00'},{'nomor':'08:00'},
                             {'nomor':'09:00'}, {'nomor':'10:00'},
@@ -36,7 +36,7 @@ new Vue({
                             {'nomor':'21:00'} ]
             },
             '3': {
-                'lapangan': 'Luxury',
+                'studio': 'Luxury',
                 'label': 'C',
                 'urutan': [ {'nomor':'07:00'},{'nomor':'08:00'},
                             {'nomor':'09:00'}, {'nomor':'10:00'},

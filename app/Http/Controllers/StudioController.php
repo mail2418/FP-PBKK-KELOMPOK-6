@@ -8,9 +8,9 @@ class StudioController extends Controller
 {
     public function profile()
     {   
-        $dump = Studio::where([['lat', '=', 'NULL']])->get();
+        #$dump = Studio::where([['lat', '=', 'NULL']])->get();
         $lapangan = Studio::distinct()->get(['lat','lng','nama']);
-        return view('profile',['lapangan'=>$lapangan,'dump'=>$dump]);
+        return view('profile',['lapangan'=>$lapangan]);
     }
     public function index()
     {   

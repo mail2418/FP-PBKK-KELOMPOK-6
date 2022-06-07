@@ -14,7 +14,7 @@
             <div class="jadwal">
                 <div class="baris" v-for="studio in jadwal">
                     <div class="lapangan">
-                        <p>Studio @{{ studio.lapangan }}</p>
+                        <p>Studio @{{ studio.studio }}</p>
                     </div>
                     <a v-for="jam in studio.urutan" class="cards credentialing tombol-pilihjadwal" onclick="getDataStudio(this.id)">
                         <div class="overlay"></div>
